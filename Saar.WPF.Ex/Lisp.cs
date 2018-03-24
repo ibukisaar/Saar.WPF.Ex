@@ -8,7 +8,7 @@ using System.Globalization;
 using ExpressionBase = System.Linq.Expressions.Expression;
 using System.Windows.Markup;
 
-namespace Wpf截图工具 {
+namespace Saar.WPF.Ex {
 	[ContentProperty(nameof(Expression))]
 	[MarkupExtensionReturnType(typeof(object))]
 	public class Lisp : MarkupExtension, IValueConverter, IMultiValueConverter {
@@ -16,7 +16,7 @@ namespace Wpf截图工具 {
 
 		public delegate dynamic ParamArrayDelegate(params dynamic[] args);
 
-		public static readonly Dictionary<string, Delegate> RegisterDelegates = new Dictionary<string, Delegate>() {
+		public static readonly IDictionary<string, Delegate> RegisterDelegates = new Dictionary<string, Delegate>() {
 			["add"] = (ParamArrayDelegate) (args => {
 				if (args == null || args.Length == 0) return null;
 				var sum = args[0];
@@ -85,6 +85,7 @@ namespace Wpf截图工具 {
 					return ExpressionBase.Constant(double.Parse(token), typeof(object));
 				} else {
 					int argId = token != "$" ? int.Parse(token.Substring(1)) : int.MaxValue;
+					if (argId == 0) argId = int.MaxValue;
 					if (!argsMap.TryGetValue(argId, out var param)) {
 						argsMap[argId] = param = ExpressionBase.Parameter(typeof(object), token);
 					}

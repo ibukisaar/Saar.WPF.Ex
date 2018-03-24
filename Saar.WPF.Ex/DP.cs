@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Reflection;
 
-namespace WpfApp3 {
+namespace Saar.WPF.Ex {
 	public static class DP {
 		public class Exception : System.Exception {
 			public Exception(string message) : base(message) { }
