@@ -22,6 +22,6 @@
 			</TextBox.Text>
 		</TextBox>
 		<TextBox HorizontalAlignment="Left" Height="23" Margin="10,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Test, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"/>
-		<TextBlock HorizontalAlignment="Left" Margin="10,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Test, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged, Converter={ex:Lisp (concat $0 $1)}, ConverterParameter='TextBox.Text:'}"/>
+		<TextBlock HorizontalAlignment="Left" Margin="10,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding Test, RelativeSource={RelativeSource AncestorType=Window, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged, Converter={ex:Lisp (concat $ $1)}, ConverterParameter='TextBox.Text:'}"/>
 	</Grid>
 </Window>

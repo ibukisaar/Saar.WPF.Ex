@@ -85,7 +85,6 @@ namespace Saar.WPF.Ex {
 					return ExpressionBase.Constant(double.Parse(token), typeof(object));
 				} else {
 					int argId = token != "$" ? int.Parse(token.Substring(1)) : int.MaxValue;
-					if (argId == 0) argId = int.MaxValue;
 					if (!argsMap.TryGetValue(argId, out var param)) {
 						argsMap[argId] = param = ExpressionBase.Parameter(typeof(object), token);
 					}
