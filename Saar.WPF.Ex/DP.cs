@@ -59,13 +59,13 @@ namespace Saar.WPF.Ex {
 			return DependencyProperty.Register(propertyName, typeof(T), ownerType, typeMetadata, validateValueCallback);
 		}
 
-		public static DependencyPropertyKey RegisterReadonly(PropertyMetadata typeMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
+		public static DependencyPropertyKey RegisterReadOnly(PropertyMetadata typeMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
 			var propertyName = GetPropertyName(PropertyKeyRegex, dpName);
 			var ownerType = GetDeclaringType();
 			return DependencyProperty.RegisterReadOnly(propertyName, GetPropertyType(ownerType, propertyName), ownerType, typeMetadata, validateValueCallback);
 		}
 
-		public static DependencyPropertyKey RegisterReadonly<T>(PropertyMetadata typeMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
+		public static DependencyPropertyKey RegisterReadOnly<T>(PropertyMetadata typeMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
 			var propertyName = GetPropertyName(PropertyKeyRegex, dpName);
 			var ownerType = GetDeclaringType();
 			return DependencyProperty.RegisterReadOnly(propertyName, typeof(T), ownerType, typeMetadata, validateValueCallback);
@@ -93,6 +93,14 @@ namespace Saar.WPF.Ex {
 			var propertyName = GetPropertyName(PropertyKeyRegex, dpName);
 			var ownerType = GetDeclaringType();
 			return DependencyProperty.RegisterAttachedReadOnly(dpName, typeof(T), ownerType, defaultMetadata, validateValueCallback);
+		}
+
+		public static void Override(this DependencyProperty dp, PropertyMetadata typeMetadata) {
+			dp.OverrideMetadata(GetDeclaringType(), typeMetadata);
+		}
+
+		public static void Override(this DependencyPropertyKey dpKey, PropertyMetadata typeMetadata) {
+			dpKey.DependencyProperty.OverrideMetadata(GetDeclaringType(), typeMetadata, dpKey);
 		}
 
 		public static T GetValue<T>(this DependencyObject obj, DependencyProperty dp) {

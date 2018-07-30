@@ -21,6 +21,8 @@ namespace Sample {
 	public partial class MainWindow : Window {
 		static MainWindow() {
 			Lisp.RegisterDelegates["to_int"] = (Func<dynamic, dynamic>)(x => x is string s && int.TryParse(s, out int val) ? val : 0);
+
+			WindowStateProperty.Override(new FrameworkPropertyMetadata(WindowState.Maximized));
 		}
 
 
@@ -31,7 +33,7 @@ namespace Sample {
 			set => SetValue(TestProperty, value);
 		}
 
-		
+
 		public MainWindow() {
 			InitializeComponent();
 		}

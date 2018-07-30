@@ -14,7 +14,7 @@
 			<TextBox.Text>
 				<MultiBinding>
 					<MultiBinding.Converter>
-						<ex:Lisp Expression="(format '{0}+{1}={2}' (to_int $1) (to_int $2) (add (to_int $1) (to_int $2)))"/>
+						<ex:Lisp Expression="(format '{0}+{1}={2}' $0 $1 (add $0 $1))"/>
 					</MultiBinding.Converter>
 					<Binding Path="Text" ElementName="txt1"/>
 					<Binding Path="Text" ElementName="txt2"/>
