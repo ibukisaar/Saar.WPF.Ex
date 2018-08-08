@@ -25,7 +25,7 @@ namespace Sample {
 			WindowStateProperty.Override(new FrameworkPropertyMetadata(WindowState.Maximized));
 		}
 
-
+		
 		public static readonly DependencyProperty TestProperty = DP.Register();
 
 		public string Test {
@@ -36,6 +36,10 @@ namespace Sample {
 
 		public MainWindow() {
 			InitializeComponent();
+
+			Loaded += delegate {
+				var dp = Test3.Data2AProperty == Test4.Data2AProperty;
+			};
 		}
 	}
 }
