@@ -97,6 +97,14 @@ namespace Saar.WPF.Ex {
 			dpKey.DependencyProperty.OverrideMetadata(ExTool.GetDeclaringType(), typeMetadata, dpKey);
 		}
 
+		public static void Override<TOwner>(this DependencyProperty dp, PropertyMetadata typeMetadata) {
+			dp.OverrideMetadata(typeof(TOwner), typeMetadata);
+		}
+
+		public static void Override<TOwner>(this DependencyPropertyKey dpKey, PropertyMetadata typeMetadata) {
+			dpKey.DependencyProperty.OverrideMetadata(typeof(TOwner), typeMetadata, dpKey);
+		}
+
 		public static T GetValue<T>(this DependencyObject obj, DependencyProperty dp) {
 			return (T)obj.GetValue(dp);
 		}
