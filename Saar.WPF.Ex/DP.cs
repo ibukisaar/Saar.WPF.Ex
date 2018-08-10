@@ -68,25 +68,25 @@ namespace Saar.WPF.Ex {
 		public static DependencyProperty RegisterAttached(PropertyMetadata defaultMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
 			var propertyName = GetPropertyName(PropertyRegex, dpName);
 			var ownerType = ExTool.GetDeclaringType();
-			return DependencyProperty.RegisterAttached(dpName, GetPropertyTypeFromMethod(ownerType, propertyName), ownerType, defaultMetadata, validateValueCallback);
+			return DependencyProperty.RegisterAttached(propertyName, GetPropertyTypeFromMethod(ownerType, propertyName), ownerType, defaultMetadata, validateValueCallback);
 		}
 
 		public static DependencyProperty RegisterAttached<T>(PropertyMetadata defaultMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
 			var propertyName = GetPropertyName(PropertyRegex, dpName);
 			var ownerType = ExTool.GetDeclaringType();
-			return DependencyProperty.RegisterAttached(dpName, typeof(T), ownerType, defaultMetadata, validateValueCallback);
+			return DependencyProperty.RegisterAttached(propertyName, typeof(T), ownerType, defaultMetadata, validateValueCallback);
 		}
 
 		public static DependencyPropertyKey RegisterAttachedReadOnly(PropertyMetadata defaultMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
 			var propertyName = GetPropertyName(PropertyKeyRegex, dpName);
 			var ownerType = ExTool.GetDeclaringType();
-			return DependencyProperty.RegisterAttachedReadOnly(dpName, GetPropertyTypeFromMethod(ownerType, propertyName), ownerType, defaultMetadata, validateValueCallback);
+			return DependencyProperty.RegisterAttachedReadOnly(propertyName, GetPropertyTypeFromMethod(ownerType, propertyName), ownerType, defaultMetadata, validateValueCallback);
 		}
 
 		public static DependencyPropertyKey RegisterAttachedReadOnly<T>(PropertyMetadata defaultMetadata = null, ValidateValueCallback validateValueCallback = null, [CallerMemberName] string dpName = null) {
 			var propertyName = GetPropertyName(PropertyKeyRegex, dpName);
 			var ownerType = ExTool.GetDeclaringType();
-			return DependencyProperty.RegisterAttachedReadOnly(dpName, typeof(T), ownerType, defaultMetadata, validateValueCallback);
+			return DependencyProperty.RegisterAttachedReadOnly(propertyName, typeof(T), ownerType, defaultMetadata, validateValueCallback);
 		}
 
 		public static void Override(this DependencyProperty dp, PropertyMetadata typeMetadata) {

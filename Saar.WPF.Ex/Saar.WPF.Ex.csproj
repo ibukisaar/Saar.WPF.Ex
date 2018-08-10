@@ -13,7 +13,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PackageId>Saar.WPF.Ex</PackageId>
-    <PackageVersion>1.2</PackageVersion>
+    <PackageVersion>1.2.1</PackageVersion>
     <Description>DependencyProperty黑魔法，Lisp转换器</Description>
     <Authors>ibukisaar</Authors>
     <Title>Saar WPF Extension</Title>
